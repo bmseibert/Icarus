@@ -1,0 +1,1 @@
+/usr/bin/clang-6.0 -fPIC   -shared -Wl,-soname,libpigpio.so -o libpigpio.so CMakeFiles/pigpio.dir/pigpio.c.o CMakeFiles/pigpio.dir/command.c.o 

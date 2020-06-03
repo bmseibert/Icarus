@@ -1,0 +1,1 @@
+/usr/bin/clang-6.0   -rdynamic CMakeFiles/x_pigpiod_if.dir/x_pigpiod_if.c.o  -o x_pigpiod_if -Wl,-rpath,/home/bigboi/Drone/FlightController/build/libs/pigpio-master libpigpiod_if.so -lrt -lpthread 
