@@ -40,5 +40,5 @@ include_directories(
 add_subdirectory(libs/pigpio-master)
 
 include_directories(/libs/pigpio-master)
-add_executable(Main src/main.cpp src/flight_controller.cpp src/motor_controller.cpp)
+add_executable(Main src/main.cpp src/flight_controller.cpp src/motor_controller.cpp src/imu.cpp)
 target_link_libraries(Main pigpio pigpiod_if2 pthread)
