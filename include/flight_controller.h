@@ -1,5 +1,6 @@
 #pragma once
 #include "motor_controller.h"
+#include "imu.h"
 
 class FlightCont
 {
@@ -15,4 +16,5 @@ class FlightCont
         MotorCont* frontl;
         MotorCont* backr;
         MotorCont* backl;
+        IMU* imu;
 };

@@ -1,1 +1,0 @@
-/usr/bin/clang-6.0   -rdynamic CMakeFiles/pigpiod.dir/pigpiod.c.o  -o pigpiod -Wl,-rpath,/home/bigboi/Drone/FlightController/build/libs/pigpio-master: libpigpio.so -lrt -lpthread 

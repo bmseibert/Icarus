@@ -5,16 +5,16 @@
 class MotorCont 
 {
     private:
-        const unsigned int frequency = 50; // Should always be using a  
+        const unsigned int frequency = 50; // Should always be using a 50% duty cycle
         int pi; 
         int motorPin;
     public:
         int throttle;
-        MotorCont(int& pi, const int& motorPin);
+        MotorCont(int pi, int motorPin);
         MotorCont();
-        int SetSpeed(const int& throttle);
+        int SetSpeed(int throttle);
         int GetPi();
-        void SetPi(int& newPi);
+        void SetPi(int newPi);
         int GetMotorPin();
-        void SetMotorPin(const int& newMotorPin);
+        void SetMotorPin(int newMotorPin);
 };

@@ -1,1 +1,0 @@
-/usr/bin/clang++-6.0  -Wall -lpthread -lrt -lpigpiod_if2 -lpigpio   CMakeFiles/Main.dir/src/main.cpp.o CMakeFiles/Main.dir/src/flight_controller.cpp.o CMakeFiles/Main.dir/src/motor_controller.cpp.o  -o Main -Wl,-rpath,/home/bigboi/Drone/FlightController/build/libs/pigpio-master libs/pigpio-master/libpigpio.so libs/pigpio-master/libpigpiod_if2.so -lpthread 

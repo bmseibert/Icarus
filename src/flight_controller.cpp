@@ -9,12 +9,13 @@ FlightCont::FlightCont()
     // Connect to the pigpio daemon before anything (NULL uses default ip and port)
     int newPi = pigpio_start(NULL, NULL);
     SetPi(newPi);
-    this->frontr = new MotorCont(newPi, MOTOR1);
-    this->frontl = new MotorCont(newPi, MOTOR2);
-    this->backr = new MotorCont(newPi, MOTOR3);
-    this->backl = new MotorCont(newPi, MOTOR4);
     // Set the motorcontrollers to the correct pins
+    this->frontr = new MotorCont(newPi, MOTORFR);
+    this->frontl = new MotorCont(newPi, MOTORFL);
+    this->backr = new MotorCont(newPi, MOTORBR);
+    this->backl = new MotorCont(newPi, MOTORBL);
     // Initialize the IMU
+    this->imu = new IMU(newPi, IMU_SDA, IMU_SCL);
 }
 
 int FlightCont::GetPi()

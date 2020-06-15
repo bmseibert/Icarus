@@ -1,28 +1,28 @@
 #include <iostream>
 #include "motor_controller.h"
 
-MotorCont::MotorCont(int& pi, const int& MotorPin)
+MotorCont::MotorCont(int pi, int motorPin)
 {
-    std::cout << "Initializing Motor: " << MotorPin << std::endl; 
+    std::cout << "Initializing Motor: " << motorPin << std::endl; 
     // Set pigpio mode to output
-    set_mode(pi, MotorPin, PI_OUTPUT);
+    set_mode(pi, motorPin, PI_OUTPUT);
     SetPi(pi);
-    SetMotorPin(MotorPin);
+    SetMotorPin(motorPin);
     this->throttle = 0;
     // To init esc, must send a zero signal first
     SetSpeed(0);
-    std::cout << "Finished Initializing Motor: " << MotorPin << std::endl; 
+    std::cout << "Finished Initializing Motor: " << motorPin << std::endl; 
 }
 
 MotorCont::MotorCont(){}
 
 // Getters and Setters for private attributes
 int MotorCont::GetPi(){return this->pi;}
-void MotorCont::SetPi(int& newPi){this->pi = newPi;}
+void MotorCont::SetPi(int newPi){this->pi = newPi;}
 int MotorCont::GetMotorPin(){return this->motorPin;}
-void MotorCont::SetMotorPin(const int& newMotorPin){this->motorPin = newMotorPin;}
+void MotorCont::SetMotorPin(int newMotorPin){this->motorPin = newMotorPin;}
 
-int MotorCont::SetSpeed(const int& throttle)
+int MotorCont::SetSpeed(int throttle)
 {
     // Set the range from 0-100 to 0-255 for dutycycle
     int duty = 255*(throttle/100);
