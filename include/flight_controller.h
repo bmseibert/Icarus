@@ -8,6 +8,7 @@ class FlightCont
         int pi; //Returned from pigpio library, used for starting and stoping daemon
     public:
         FlightCont();
+        ~FlightCont();
         void SetPi(int newPi);
         int GetPi();
         int InitGpio();

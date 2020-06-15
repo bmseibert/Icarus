@@ -42,3 +42,11 @@ int FlightCont::CleanUp()
     pigpio_stop(this->pi);
     return 0;
 }
+
+FlightCont::~FlightCont(){
+    delete this->frontl;
+    delete this->frontr;
+    delete this->backl;
+    delete this->backr;
+    delete this->imu;
+}
