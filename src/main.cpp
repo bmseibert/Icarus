@@ -6,7 +6,7 @@ int main()
 {
   // Always start the pigpio daemon before running this file
   FlightCont mainController;
-  std::cout << mainController.frontr->GetPi() << std::endl;
-  std::cout << "Hello World!" << std::endl;
+  std::cout << "Pi number is: " << mainController.frontr->GetPi() << std::endl;
+  mainController.frontr->SetSpeed(5);
   return 0;
 }

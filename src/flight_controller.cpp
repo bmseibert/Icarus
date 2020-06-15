@@ -23,7 +23,7 @@ int FlightCont::GetPi()
     return this->pi;
 }
 
-void FlightCont::SetPi(int& newPi)
+void FlightCont::SetPi(int newPi)
 {
     this->pi = newPi;
 }
