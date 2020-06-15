@@ -25,7 +25,7 @@ void MotorCont::SetMotorPin(int newMotorPin){this->motorPin = newMotorPin;}
 int MotorCont::SetSpeed(int throttle)
 {
     // Set the range from 0-100 to 0-255 for dutycycle
-    int duty = 255*(throttle/100);
+    double duty = 255*(throttle/100);
     this->throttle = throttle;
     std::cout << "Duty Cycle is: " << duty << std::endl;
     // Set frequency to 50Hz and adjust dutycycle to change speed
