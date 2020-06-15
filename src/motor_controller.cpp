@@ -27,6 +27,7 @@ int MotorCont::SetSpeed(int throttle)
     // Set the range from 0-100 to 0-255 for dutycycle
     int duty = 255*(throttle/100);
     this->throttle = throttle;
+    std::cout << "Duty Cycle is: " << duty << std::endl;
     // Set frequency to 50Hz and adjust dutycycle to change speed
     set_PWM_frequency(GetPi(), GetMotorPin(), this->frequency);
     set_PWM_dutycycle(GetPi(), GetMotorPin(), duty);
