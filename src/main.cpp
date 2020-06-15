@@ -8,5 +8,6 @@ int main()
   FlightCont mainController;
   std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
   mainController.frontr->SetSpeed(5);
+  std::cin.get();
   return 0;
 }
