@@ -9,8 +9,8 @@ int main()
   std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
   mainController.frontr->SetSpeed(25);
   mainController.frontl->SetSpeed(30);
-  std::cout << "Speed of front right motor is: " << gpio_read(mainController.GetPi(), mainController.frontr->GetMotorPin()) << std::endl;
-  std::cout << "Speed of front left motor is: " << gpio_read(mainController.GetPi(), mainController.frontl->GetMotorPin()) << std::endl;
+  std::cout << "Speed of front right motor is: " << get_PWM_dutycycle(mainController.GetPi(), mainController.frontr->GetMotorPin()) << std::endl;
+  std::cout << "Speed of front left motor is: " << get_PWM_dutycycle(mainController.GetPi(), mainController.frontl->GetMotorPin()) << std::endl;
   std::cin.get();
   return 0;
 }
