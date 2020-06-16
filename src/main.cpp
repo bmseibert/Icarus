@@ -14,8 +14,10 @@ int main()
   // gpioPWM(17, 50);
   gpioServo(17, 0);
   gpioServo(17, 2500);
-  gpioServo(17, 2000);
-  std::cout << "PWM set up done" << std::endl;
+  while(1){
+    gpioServo(17, 2000);
+    std::cout << "PWM set up done" << std::endl;
+  }
   // FlightCont mainController;
   // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
   // mainController.frontr->SetSpeed(25);
