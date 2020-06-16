@@ -8,10 +8,13 @@ int main()
   int val = gpioInitialise();
   std::cout << "Initailization val: " << val << std::endl;
   gpioSetMode(17, PI_OUTPUT);
-  gpioSetPWMfrequency(17, 30000);
-  gpioPWM(17, 0);
-  gpioPWM(17, 255);
-  gpioPWM(17, 50);
+  // gpioSetPWMfrequency(17, 30000);
+  // gpioPWM(17, 0);
+  // gpioPWM(17, 255);
+  // gpioPWM(17, 50);
+  gpioServo(17, 0);
+  gpioServo(17, 2500);
+  gpioServo(17, 2000);
   std::cout << "PWM set up done" << std::endl;
   // FlightCont mainController;
   // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
