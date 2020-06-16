@@ -6,7 +6,7 @@
 
 FlightCont::FlightCont()
 {
-    // Connect to the pigpio daemon before anything (NULL uses default ip and port)
+    // Connect to the pigpio daemon before anything (0 uses default ip and port)
     int newPi = pigpio_start(0, 0);
     SetPi(newPi);
     // Set the motorcontrollers to the correct pins
