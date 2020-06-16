@@ -9,7 +9,8 @@ int main()
   std::cout << "Initailization val: " << val << std::endl;
   gpioSetMode(17, PI_OUTPUT);
   gpioPWM(17, 0);
-  gpioPWM(17, 30);
+  gpioPWM(17, 255);
+  gpioPWM(17, 50);
   // FlightCont mainController;
   // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
   // mainController.frontr->SetSpeed(25);
