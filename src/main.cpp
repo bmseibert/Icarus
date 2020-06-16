@@ -11,13 +11,12 @@ int main()
   std::cout << "Initailization val: " << val << std::endl;
   gpioSetMode(17, PI_OUTPUT);
   // gpioSetPWMfrequency(17, 30000);
-  // gpioPWM(17, 0);
+  gpioPWM(17, 100);
   // gpioPWM(17, 255);
   // gpioPWM(17, 50);
-  gpioServo(17, 2000);
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  gpioServo(17, 0);
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  std::this_thread::sleep_for(std::chrono::milliseconds(500));
+  gpioPWM(17, 0);
+  std::this_thread::sleep_for(std::chrono::milliseconds(500));
   std::cout << "PWM set up done" << std::endl;
   // FlightCont mainController;
   // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
