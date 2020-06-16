@@ -22,14 +22,12 @@ void MotorCont::SetPi(int newPi){this->pi = newPi;}
 int MotorCont::GetMotorPin(){return this->motorPin;}
 void MotorCont::SetMotorPin(int newMotorPin){this->motorPin = newMotorPin;}
 
-int MotorCont::SetSpeed(int throttle)
+int MotorCont::SetSpeed(unsigned int throttle)
 {
-    // Set the range from 0-100 to 0-255 for dutycycle
-    double duty = 255*(throttle/100);
     this->throttle = throttle;
-    std::cout << "Duty Cycle is: " << duty << std::endl;
+    std::cout << "Duty Cycle is: " << this->throttle << std::endl;
     // Set frequency to 50Hz and adjust dutycycle to change speed
     set_PWM_frequency(GetPi(), GetMotorPin(), this->frequency);
-    set_PWM_dutycycle(GetPi(), GetMotorPin(), duty);
+    set_PWM_dutycycle(GetPi(), GetMotorPin(), throttle);
     return 0;
 }

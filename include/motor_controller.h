@@ -9,10 +9,10 @@ class MotorCont
         int pi; 
         int motorPin;
     public:
-        int throttle;
+        unsigned int throttle; // 0-255 for pwm 
         MotorCont(int pi, int motorPin);
         MotorCont();
-        int SetSpeed(int throttle);
+        int SetSpeed(unsigned int throttle);
         int GetPi();
         void SetPi(int newPi);
         int GetMotorPin();

@@ -5,6 +5,8 @@
 int main()
 {
   // Always start the pigpio daemon before running this file
+  int val = gpioInitialise();
+  std::cout << "Initailization val: " << val << std::endl;
   FlightCont mainController;
   std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
   mainController.frontr->SetSpeed(25);
