@@ -1,6 +1,8 @@
 #include <iostream>
 #include "flight_controller.h"
 #include "motor_controller.h"
+#include <thread>
+#include <chrono>
  
 int main()
 {
@@ -12,9 +14,10 @@ int main()
   // gpioPWM(17, 0);
   // gpioPWM(17, 255);
   // gpioPWM(17, 50);
-  gpioServo(17, 0);
-  gpioServo(17, 2500);
   gpioServo(17, 2000);
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  gpioServo(17, 0);
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
   std::cout << "PWM set up done" << std::endl;
   // FlightCont mainController;
   // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
