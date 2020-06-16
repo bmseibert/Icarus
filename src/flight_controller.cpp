@@ -7,7 +7,7 @@
 FlightCont::FlightCont()
 {
     // Connect to the pigpio daemon before anything (NULL uses default ip and port)
-    int newPi = pigpio_start(NULL, NULL);
+    int newPi = pigpio_start(0, 0);
     SetPi(newPi);
     // Set the motorcontrollers to the correct pins
     this->frontr = new MotorCont(newPi, MOTORFR);
@@ -26,14 +26,6 @@ int FlightCont::GetPi()
 void FlightCont::SetPi(int newPi)
 {
     this->pi = newPi;
-}
-
-int FlightCont::InitGpio()
-{
-    // Must connect to the pigpio daemon
-    int newPi = pigpio_start(NULL, NULL);
-    SetPi(newPi);
-    return 0;
 }
 
 int FlightCont::CleanUp()

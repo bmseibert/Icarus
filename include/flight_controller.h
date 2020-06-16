@@ -11,7 +11,6 @@ class FlightCont
         ~FlightCont();
         void SetPi(int newPi);
         int GetPi();
-        int InitGpio();
         int CleanUp();
         MotorCont* frontr; // Motor controllers for the four flight motors
         MotorCont* frontl;
