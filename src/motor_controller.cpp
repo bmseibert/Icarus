@@ -1,12 +1,11 @@
 #include <iostream>
 #include "motor_controller.h"
 
-MotorCont::MotorCont(int pi, int motorPin)
+MotorCont::MotorCont(int motorPin)
 {
     std::cout << "Initializing Motor: " << motorPin << std::endl; 
     // Set pigpio mode to output
-    set_mode(pi, motorPin, PI_OUTPUT);
-    SetPi(pi);
+    gpioSetMode(motorPin, PI_OUTPUT);
     SetMotorPin(motorPin);
     this->throttle = 0;
     // To init esc, must send a zero signal first
@@ -17,8 +16,6 @@ MotorCont::MotorCont(int pi, int motorPin)
 MotorCont::MotorCont(){}
 
 // Getters and Setters for private attributes
-int MotorCont::GetPi(){return this->pi;}
-void MotorCont::SetPi(int newPi){this->pi = newPi;}
 int MotorCont::GetMotorPin(){return this->motorPin;}
 void MotorCont::SetMotorPin(int newMotorPin){this->motorPin = newMotorPin;}
 
@@ -27,7 +24,7 @@ int MotorCont::SetSpeed(unsigned int throttle)
     this->throttle = throttle;
     std::cout << "Duty Cycle is: " << this->throttle << std::endl;
     // Set frequency to 50Hz and adjust dutycycle to change speed
-    set_PWM_frequency(GetPi(), GetMotorPin(), this->frequency);
-    set_PWM_dutycycle(GetPi(), GetMotorPin(), throttle);
+    gpioSetPWMfrequency(GetMotorPin(), this->frequency);
+    gpioPWM(GetMotorPin(), throttle);
     return 0;
 }
