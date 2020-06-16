@@ -10,10 +10,10 @@ FlightCont::FlightCont()
     int newPi = pigpio_start(0, 0);
     SetPi(newPi);
     // Set the motorcontrollers to the correct pins
-    this->frontr = new MotorCont(newPi, MOTORFR);
-    this->frontl = new MotorCont(newPi, MOTORFL);
-    this->backr = new MotorCont(newPi, MOTORBR);
-    this->backl = new MotorCont(newPi, MOTORBL);
+    this->frontr = new MotorCont(MOTORFR);
+    this->frontl = new MotorCont(MOTORFL);
+    this->backr = new MotorCont(MOTORBR);
+    this->backl = new MotorCont(MOTORBL);
     // Initialize the IMU
     this->imu = new IMU(newPi, IMU_SDA, IMU_SCL);
 }
