@@ -9,7 +9,7 @@ int main()
   // Always start the pigpio daemon before running this file
   int val = gpioInitialise();
   std::cout << "Initailization val: " << val << std::endl;
-  bool calibrate = false;
+  bool calibrate = true;
   char enter[10];
   gpioServo(22, 0);
   gpioSetMode(22, PI_OUTPUT);
