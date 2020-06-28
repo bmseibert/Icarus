@@ -17,11 +17,11 @@ int main()
     gpioServo(17, 0);
     gpioServo(17, 2000); //set it to max value
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
-    gpioServo(17, 700); // set it to the min value
+    gpioServo(17, 1000); // set it to the min value
     std::this_thread::sleep_for(std::chrono::milliseconds(12000));
     gpioServo(17, 0); // set it to 0
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-    gpioServo(17, 700); // Now it is armed
+    gpioServo(17, 1000); // Now it is armed
     std::cout << "PWM set up done" << std::endl;
   }
   else{
@@ -29,7 +29,7 @@ int main()
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     gpioServo(17, 2000); // set it to the min value
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    gpioServo(17, 700); // set it to 0
+    gpioServo(17, 1000); // set it to 0
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   }
   std::cout << "Running motor at quater speed" << std::endl;
