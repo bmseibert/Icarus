@@ -25,7 +25,7 @@ int main()
     std::cout << "PWM set up done" << std::endl;
   }
   else{
-    gpioServo(17, 0); //set it to 0
+    // gpioServo(17, 0); //set it to 0
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
     gpioServo(17, 2000); // set it to the min value
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
