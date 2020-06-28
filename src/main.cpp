@@ -33,10 +33,10 @@ int main()
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
   }
   std::cout << "Running motor at quater speed" << std::endl;
-  while(true){
-    std::cout << "In Loop" << std::endl;
-    gpioServo(17, 1500);
-  }
+  
+  std::cout << "In Loop" << std::endl;
+  gpioServo(17, 1200);
+  
   // FlightCont mainController;
   // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
   // mainController.frontr->SetSpeed(25);
