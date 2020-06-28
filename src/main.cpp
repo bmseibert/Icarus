@@ -11,6 +11,7 @@ int main()
   std::cout << "Initailization val: " << val << std::endl;
   bool calibrate = true;
   char enter[10];
+  gpioServo(17, 0);
   gpioSetMode(17, PI_OUTPUT);
   if (calibrate){
     gpioServo(17, 0);
