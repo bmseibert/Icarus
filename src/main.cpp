@@ -26,11 +26,11 @@ int main()
   }
   else{
     gpioServo(17, 0); //set it to 0
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(4000));
     gpioServo(17, 2000); // set it to the min value
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(4000));
     gpioServo(17, 1000); // set it to 0
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(4000));
   }
   std::cout << "Running motor at quater speed" << std::endl;
   while(true){
