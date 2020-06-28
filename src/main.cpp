@@ -11,31 +11,31 @@ int main()
   std::cout << "Initailization val: " << val << std::endl;
   bool calibrate = false;
   char enter[10];
-  gpioServo(17, 0);
-  gpioSetMode(17, PI_OUTPUT);
+  gpioServo(23, 0);
+  gpioSetMode(23, PI_OUTPUT);
   if (calibrate){
-    gpioServo(17, 0);
-    gpioServo(17, 2000); //set it to max value
+    gpioServo(23, 0);
+    gpioServo(23, 2000); //set it to max value
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
-    gpioServo(17, 1000); // set it to the min value
+    gpioServo(23, 1000); // set it to the min value
     std::this_thread::sleep_for(std::chrono::milliseconds(12000));
-    gpioServo(17, 0); // set it to 0
+    gpioServo(23, 0); // set it to 0
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-    gpioServo(17, 1000); // Now it is armed
+    gpioServo(23, 1000); // Now it is armed
     std::cout << "PWM set up done" << std::endl;
   }
   else{
-    gpioServo(17, 0); //set it to 0
+    gpioServo(23, 0); //set it to 0
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
-    gpioServo(17, 2000); // set it to the min value
+    gpioServo(23, 2000); // set it to the min value
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
-    gpioServo(17, 1000); // set it to 0
+    gpioServo(23, 1000); // set it to 0
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
   }
   std::cout << "Running motor at quater speed" << std::endl;
   
   std::cout << "In Loop" << std::endl;
-  gpioServo(17, 1200);
+  gpioServo(23, 1200);
   
   // FlightCont mainController;
   // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
