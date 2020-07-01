@@ -1,8 +1,6 @@
 #include <iostream>
 #include "flight_controller.h"
 #include "motor_controller.h"
-#include <thread>
-#include <chrono>
  
 int main()
 {

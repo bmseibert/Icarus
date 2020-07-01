@@ -1,6 +1,8 @@
 #pragma once
 #include <pigpio.h>
 #include <pigpiod_if2.h>
+#include <thread>
+#include <chrono>
 
 class MotorCont 
 {
@@ -8,10 +10,11 @@ class MotorCont
         const unsigned int frequency = 50; // Should always be using a 50% duty cycle
         int motorPin;
     public:
-        unsigned int throttle; // 0-255 for pwm 
+        unsigned int pulseWidth; // 0-2000ms 
         MotorCont(int motorPin);
         MotorCont();
-        int SetSpeed(unsigned int throttle);
+        int SetSpeed(unsigned int pulseWidth);
         int GetMotorPin();
         void SetMotorPin(int newMotorPin);
+        void Arm();
 };
