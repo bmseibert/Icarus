@@ -6,33 +6,25 @@
 
 FlightCont::FlightCont()
 {
-    // Connect to the pigpio daemon before anything (0 uses default ip and port)
-    int newPi = pigpio_start(0, 0);
-    SetPi(newPi);
+    // Must initialize the gpio library 
+    int val = gpioInitialise();
+    std::cout << "Initailization val: " << val << std::endl;
     // Set the motorcontrollers to the correct pins
     this->frontr = new MotorCont(MOTORFR);
     this->frontl = new MotorCont(MOTORFL);
     this->backr = new MotorCont(MOTORBR);
     this->backl = new MotorCont(MOTORBL);
     // Initialize the IMU
-    this->imu = new IMU(newPi, IMU_SDA, IMU_SCL);
+    this->imu = new IMU(IMU_SDA, IMU_SCL);
 }
 
-int FlightCont::GetPi()
-{
-    return this->pi;
-}
-
-void FlightCont::SetPi(int newPi)
-{
-    this->pi = newPi;
-}
-
-int FlightCont::CleanUp()
-{
-    // Close pigpio resources
-    pigpio_stop(this->pi);
-    return 0;
+void FlightCont::ArmMotors(){
+    // Thread these operations
+    this->frontr->Arm();
+    this->frontl->Arm();
+    this->backr->Arm();
+    this->backl->Arm();
+    std::cout << "All motors Armed" << std::endl;
 }
 
 FlightCont::~FlightCont(){

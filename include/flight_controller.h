@@ -5,13 +5,10 @@
 class FlightCont
 {
     private:
-        int pi; //Returned from pigpio library, used for starting and stoping daemon
     public:
         FlightCont();
         ~FlightCont();
-        void SetPi(int newPi);
-        int GetPi();
-        int CleanUp();
+        void ArmMotors();
         MotorCont* frontr; // Motor controllers for the four flight motors
         MotorCont* frontl;
         MotorCont* backr;

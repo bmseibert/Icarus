@@ -4,13 +4,8 @@
  
 int main()
 {
-  // Always start the pigpio daemon before running this file
-  int val = gpioInitialise();
-  std::cout << "Initailization val: " << val << std::endl;
+  FlightCont boss;
   bool calibrate = false;
-  char enter[10];
-  gpioServo(17, 0);
-  gpioSetMode(17, PI_OUTPUT);
   if (calibrate){
     gpioServo(17, 0);
     gpioServo(17, 2000); //set it to max value
@@ -23,22 +18,10 @@ int main()
     std::cout << "PWM set up done" << std::endl;
   }
   else{
-    gpioServo(17, 0); //set it to 0
-    std::this_thread::sleep_for(std::chrono::milliseconds(4000));
-    gpioServo(17, 2000); // set it to the min value
-    std::this_thread::sleep_for(std::chrono::milliseconds(4000));
-    gpioServo(17, 1000); // set it to 0
-    std::this_thread::sleep_for(std::chrono::milliseconds(4000));
+    boss.ArmMotors();
   }
   std::cout << "Running motor at quater speed" << std::endl;
-  gpioServo(17, 1200);
-  
-  // FlightCont mainController;
-  // std::cout << "Pi number is: " << mainController.GetPi() << std::endl;
-  // mainController.frontr->SetSpeed(25);
-  // mainController.frontl->SetSpeed(30);
-  // std::cout << "Speed of front right motor is: " << get_PWM_dutycycle(mainController.GetPi(), mainController.frontr->GetMotorPin()) << std::endl;
-  // std::cout << "Speed of front left motor is: " << get_PWM_dutycycle(mainController.GetPi(), mainController.frontl->GetMotorPin()) << std::endl;
+  boss.frontr->SetSpeed(1200);
   std::cin.get();
   return 0;
 }

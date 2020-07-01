@@ -1,6 +1,6 @@
 #include "imu.h"
 
-IMU::IMU(int pi, int imu_sda, int imu_scl)
+IMU::IMU(int imu_sda, int imu_scl)
 {
     // Initialize 
 }

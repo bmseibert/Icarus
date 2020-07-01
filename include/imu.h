@@ -9,7 +9,7 @@ class IMU
         int YGyroOffset = 0;
         int ZGyroOffset = 0;
         int ZAccelOffset = 0;
-        IMU(int pi, int imu_sda, int imu_scl);
+        IMU(int imu_sda, int imu_scl);
         void SetI2C(int newI2C);
         int GetI2C();
 };
