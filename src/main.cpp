@@ -22,6 +22,9 @@ int main()
   }
   std::cout << "Running motor at quater speed" << std::endl;
   boss.frontr->SetSpeed(1200);
+  boss.frontl->SetSpeed(1200);
+  boss.backr->SetSpeed(1200);
+  boss.backl->SetSpeed(1200);
   std::cin.get();
   return 0;
 }

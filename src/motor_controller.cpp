@@ -37,3 +37,16 @@ void MotorCont::Arm(){
     std::this_thread::sleep_for(std::chrono::milliseconds(4000));
     std::cout << "Motor " << this->motorPin << " armed" << std::endl;
 }
+
+// THIS FUNCTION HAS NOT BEEN TESTED AND DOESNT WORK
+void MotorCont::Calibrate(){
+    SetSpeed(0);
+    SetSpeed(2000); //set it to max value
+    std::this_thread::sleep_for(std::chrono::milliseconds(4000));
+    SetSpeed(1000); // set it to the min value
+    std::this_thread::sleep_for(std::chrono::milliseconds(12000));
+    SetSpeed(0); // set it to 0
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    SetSpeed(1000); // Now it is armed
+    std::cout << "Motor " << this->motorPin << " Calibrated" << std::endl;
+}

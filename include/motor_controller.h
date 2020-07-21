@@ -17,4 +17,5 @@ class MotorCont
         int GetMotorPin();
         void SetMotorPin(int newMotorPin);
         void Arm();
+        void Calibrate();
 };
