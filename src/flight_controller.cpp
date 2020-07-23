@@ -15,7 +15,7 @@ FlightCont::FlightCont()
     this->backr = new MotorCont(MOTORBR);
     this->backl = new MotorCont(MOTORBL);
     // Initialize the IMU
-    this->imu = new IMU(IMU_SDA, IMU_SCL);
+    this->imu = new IMU();
 }
 
 void FlightCont::ArmMotors(){

@@ -1,8 +1,11 @@
 #include "imu.h"
 
-IMU::IMU(int imu_sda, int imu_scl)
+IMU::IMU()
 {
     // Initialize 
+    int handle = i2cOpen(0, I2C_ADDRESS, 0);
+    SetI2C(handle);
+    
 }
 
 void IMU::SetI2C(int newI2C){this->i2c = newI2C;}

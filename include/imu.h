@@ -1,4 +1,6 @@
 #pragma once
+#include "motor_controller.h"
+#include "constants.h"
 
 class IMU
 {
@@ -9,7 +11,7 @@ class IMU
         int YGyroOffset = 0;
         int ZGyroOffset = 0;
         int ZAccelOffset = 0;
-        IMU(int imu_sda, int imu_scl);
+        IMU();
         void SetI2C(int newI2C);
         int GetI2C();
 };

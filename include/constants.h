@@ -9,3 +9,4 @@
 #define MOTORBL 22
 #define IMU_SDA 10
 #define IMU_SCL 11
+#define I2C_ADDRESS 0x68
