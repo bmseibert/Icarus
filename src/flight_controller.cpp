@@ -17,30 +17,16 @@ FlightCont::FlightCont()
 }
 
 // I think I need this function to thread the arming function
-void FlightCont::Arm(const Motor type){
-    switch (type)
-    {
-    case Motor::frontr:
-        this->frontr->Arm();
-        break;
-    case Motor::frontl:
-        this->frontl->Arm();
-        break;
-    case Motor::backr:
-        this->backr->Arm();
-        break;
-    case Motor::backl:
-        this->backl->Arm();
-        break;
-    }
+void Arm(MotorCont* motor){
+    motor->Arm();
 };
 
 void FlightCont::ArmMotors(){
     // Thread these operations
-    std::thread frontrThead(Arm, Motor::frontr);
-    std::thread frontlThead(Arm, Motor::frontl);
-    std::thread backrThead(Arm, Motor::backr);
-    std::thread backlThead(Arm, Motor::backl);
+    std::thread frontrThead(Arm, this->frontr);
+    std::thread frontlThead(Arm, this->frontl);
+    std::thread backrThead(Arm, this->backr);
+    std::thread backlThead(Arm, this->backl);
     frontrThead.join();
     frontlThead.join();
     backrThead.join();

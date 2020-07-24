@@ -15,7 +15,6 @@ class FlightCont
         FlightCont();
         ~FlightCont();
         void ArmMotors();
-        void Arm(const Motor type);
         MotorCont* frontr; // Motor controllers for the four flight motors
         MotorCont* frontl;
         MotorCont* backr;
