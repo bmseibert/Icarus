@@ -16,13 +16,13 @@ FlightCont::FlightCont()
     this->imu = new IMU();
 }
 
-// I think I need this function to thread the arming function
+// This function is necessary for Threading 
 void Arm(MotorCont* motor){
     motor->Arm();
 };
 
 void FlightCont::ArmMotors(){
-    // Thread these operations
+    // These functions are threaded to cut down on the time spent waiting for arming
     std::thread frontrThead(Arm, this->frontr);
     std::thread frontlThead(Arm, this->frontl);
     std::thread backrThead(Arm, this->backr);
