@@ -1,8 +1,6 @@
 #include <iostream>
 #include "flight_controller.h"
-#include "pigpio.h"
-#include "pigpiod_if2.h"
-#include "constants.h"
+
 
 FlightCont::FlightCont()
 {
@@ -18,12 +16,35 @@ FlightCont::FlightCont()
     this->imu = new IMU();
 }
 
+// I think I need this function to thread the arming function
+void FlightCont::Arm(const Motor type){
+    switch (type)
+    {
+    case Motor::frontr:
+        this->frontr->Arm();
+        break;
+    case Motor::frontl:
+        this->frontl->Arm();
+        break;
+    case Motor::backr:
+        this->backr->Arm();
+        break;
+    case Motor::backl:
+        this->backl->Arm();
+        break;
+    }
+};
+
 void FlightCont::ArmMotors(){
     // Thread these operations
-    this->frontr->Arm();
-    this->frontl->Arm();
-    this->backr->Arm();
-    this->backl->Arm();
+    std::thread frontrThead(Arm, Motor::frontr);
+    std::thread frontlThead(Arm, Motor::frontl);
+    std::thread backrThead(Arm, Motor::backr);
+    std::thread backlThead(Arm, Motor::backl);
+    frontrThead.join();
+    frontlThead.join();
+    backrThead.join();
+    backlThead.join();
     std::cout << "All motors Armed" << std::endl;
 }
 
