@@ -1,6 +1,7 @@
 #pragma once
 #include "motor_controller.h"
 #include "constants.h"
+#include <iostream>
 
 class IMU
 {
@@ -14,4 +15,5 @@ class IMU
         IMU();
         void SetI2C(int newI2C);
         int GetI2C();
+        void PrintValues();
 };
